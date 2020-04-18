@@ -1,4 +1,4 @@
-package Banco;
+package entidades.tiposContas;
 
 public class ContaPoupanca extends Conta{
 	

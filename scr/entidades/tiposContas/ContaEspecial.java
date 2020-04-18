@@ -1,4 +1,4 @@
-package Banco;
+package entidades.tiposContas;
 
 public class ContaEspecial extends ContaCorrente{
 	private String nomeGerente;

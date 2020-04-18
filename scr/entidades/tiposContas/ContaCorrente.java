@@ -1,4 +1,4 @@
-package Banco;
+package entidades.tiposContas;
 
 public class ContaCorrente extends Conta {
 	private double limite;

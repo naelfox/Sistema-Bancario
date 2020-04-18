@@ -1,4 +1,4 @@
-package Banco;
+package entidades.tiposContas;
 
 public abstract class Conta {
 
