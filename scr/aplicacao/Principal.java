@@ -1,10 +1,9 @@
 package aplicacao;
 /*
- * Autor do código:  Natanael.
+ * Autor: Natanael.
  * 
- * Novembro de 2019
- * 
- * 
+ * toda codificacao comecou em meados de Novembro de 2019
+ * foi criada para o projeto da atividade pratica supervisionada do professor Igor Oliveira Borges
  * 
  */
 
@@ -23,12 +22,12 @@ public class Principal {
 		Locale.setDefault(Locale.US);
 		GerenciadorContas operacaoContas = new GerenciadorContas();
 
-		// variáveis
-		Object[] operacoes = { "Selecione...", "Adicionar conta", "Remover conta", "Saque", "Depósito", "Transferência",
+		// variï¿½veis
+		Object[] operacoes = { "Selecione...", "Adicionar conta", "Remover conta", "Saque", "Depï¿½sito", "Transferï¿½ncia",
 				"Buscar" };
-		Object[] adcConta = { "Selecione...", "Conta corrente", "Conta poupança", "Conta especial" };
-		Object[] menu = { "Sim", "Não, voltar ao menu inicial" };
-		Object[] confirmacao = { "Sim", "Não" };
+		Object[] adcConta = { "Selecione...", "Conta corrente", "Conta poupanï¿½a", "Conta especial" };
+		Object[] menu = { "Sim", "Nï¿½o, voltar ao menu inicial" };
+		Object[] confirmacao = { "Sim", "Nï¿½o" };
 		Object[] buscar = { "Buscar contas", "Contas usando limite", "Contas especiais", "Listar todas as contas" };
 		int resposta;
 		boolean opcao = false;
@@ -37,7 +36,7 @@ public class Principal {
 			// Boas vindas
 			// menu principal
 			try {
-				String x = (String) JOptionPane.showInputDialog(null, "Selecione uma operação", "BancoAnhembi",
+				String x = (String) JOptionPane.showInputDialog(null, "Selecione uma operaï¿½ï¿½o", "BancoAnhembi",
 						JOptionPane.PLAIN_MESSAGE, null, operacoes, 0);
 
 				// adicionar Conta
@@ -45,7 +44,7 @@ public class Principal {
 					do {
 						String y = (String) JOptionPane.showInputDialog(null, "Selecione o tipo de conta",
 								"BancoAnhembi", JOptionPane.PLAIN_MESSAGE, null, adcConta, 0);
-						// começo do tratamento de excessoes
+						// comeï¿½o do tratamento de excessoes
 
 						// adicionar conta corrente
 						if (y.equals(adcConta[1])) {
@@ -59,7 +58,7 @@ public class Principal {
 							operacaoContas.adicionarConta(c);
 							JOptionPane.showMessageDialog(null, "Dados da nova conta\n" + c.imprimir());
 						}
-						// adicionar conta poupança
+						// adicionar conta poupanï¿½a
 						if (y.equals(adcConta[2])) {
 							int numeroDaConta = Integer.parseInt(JOptionPane.showInputDialog("Numero da conta"));
 							String nomeDoCliente = JOptionPane.showInputDialog("Nome do Cliente");
@@ -81,7 +80,7 @@ public class Principal {
 
 							JOptionPane.showMessageDialog(null, "Dados da nova conta\n" + c.imprimir());
 						}
-						// solução para as excessoes
+						// soluï¿½ï¿½o para as excessoes
 
 						// resposta ou retorno ao menu
 						resposta = JOptionPane.showOptionDialog(null, "Desejar criar uma nova conta?", "O que fazer",
@@ -98,14 +97,14 @@ public class Principal {
 				// remover conta
 				if (x.equals(operacoes[2])) {
 
-					int numeroConta = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o número da conta",
+					int numeroConta = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o nï¿½mero da conta",
 							"Remover conta", JOptionPane.INFORMATION_MESSAGE));
 
 					String localizador = operacaoContas.buscarConta(numeroConta);
 
 					if (localizador == null) {
 						JOptionPane.showMessageDialog(null,
-								"Erro! não foi possivel localizar nenhuma conta com o número informado.", "Erro", 0);
+								"Erro! nï¿½o foi possivel localizar nenhuma conta com o nï¿½mero informado.", "Erro", 0);
 					} else {
 
 						int resp = JOptionPane.showOptionDialog(null,
@@ -116,7 +115,7 @@ public class Principal {
 
 							JOptionPane.showMessageDialog(null, "Conta removida com sucesso!");
 						} else {
-							JOptionPane.showMessageDialog(null, "Não removida");
+							JOptionPane.showMessageDialog(null, "Nï¿½o removida");
 						}
 
 					}
@@ -125,14 +124,14 @@ public class Principal {
 				// saque na conta
 				if (x.equals(operacoes[3])) {
 
-					int numeroConta = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o número da conta",
+					int numeroConta = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o nï¿½mero da conta",
 							"Saque em conta", JOptionPane.INFORMATION_MESSAGE));
 
 					String localizador = operacaoContas.buscarConta(numeroConta);
 
 					if (localizador == null) {
 						JOptionPane.showMessageDialog(null,
-								"Erro! não foi possivel localizar nenhuma conta com o número informado.", "Erro", 0);
+								"Erro! nï¿½o foi possivel localizar nenhuma conta com o nï¿½mero informado.", "Erro", 0);
 					} else {
 						double valorSacado = Double.parseDouble(JOptionPane.showInputDialog(
 								operacaoContas.buscarConta(numeroConta) + "\n\nInforme um valor para saque"));
@@ -151,92 +150,92 @@ public class Principal {
 					}
 				}
 
-				// depósito na conta
+				// depï¿½sito na conta
 				if (x.equals(operacoes[4])) {
-					int numeroConta = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o número da conta",
+					int numeroConta = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o nï¿½mero da conta",
 							"Deposito em conta", JOptionPane.INFORMATION_MESSAGE));
 
 					String localizador = operacaoContas.buscarConta(numeroConta);
 
 					if (localizador == null) {
 						JOptionPane.showMessageDialog(null,
-								"Erro! não foi possivel localizar nenhuma conta com o número informado.", "Erro", 0);
+								"Erro! nï¿½o foi possivel localizar nenhuma conta com o nï¿½mero informado.", "Erro", 0);
 					} else {
 						double valorDepositado = Double.parseDouble(JOptionPane.showInputDialog(
-								operacaoContas.buscarConta(numeroConta) + "\n\nInforme um valor para depósito"));
-						int resp = JOptionPane.showOptionDialog(null, "Deseja efetuar o depósito na seguinte conta\n"
+								operacaoContas.buscarConta(numeroConta) + "\n\nInforme um valor para depï¿½sito"));
+						int resp = JOptionPane.showOptionDialog(null, "Deseja efetuar o depï¿½sito na seguinte conta\n"
 								+ operacaoContas.buscarConta(numeroConta) + "\nNo valor de R$ " + valorDepositado + "?",
 								"Remover conta", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION, null, confirmacao, 0);
 
 						if (resp == JOptionPane.YES_OPTION) {
 							operacaoContas.depositar(numeroConta, valorDepositado);
 							JOptionPane.showMessageDialog(null,
-									"Depósito realizado com sucesso!\n" + operacaoContas.buscarConta(numeroConta));
+									"Depï¿½sito realizado com sucesso!\n" + operacaoContas.buscarConta(numeroConta));
 						} else {
-							JOptionPane.showMessageDialog(null, "Depósito cancelado");
+							JOptionPane.showMessageDialog(null, "Depï¿½sito cancelado");
 						}
 
 					}
 
 				}
 
-				// transferência de conta a conta
+				// transferï¿½ncia de conta a conta
 				if (x.equals(operacoes[5])) {
 
 					int numeroContaFonte = Integer
-							.parseInt(JOptionPane.showInputDialog(null, "Informe o número da conta fonte",
-									"Transferência em conta", JOptionPane.INFORMATION_MESSAGE));
+							.parseInt(JOptionPane.showInputDialog(null, "Informe o nï¿½mero da conta fonte",
+									"Transferï¿½ncia em conta", JOptionPane.INFORMATION_MESSAGE));
 
 					String localizador = operacaoContas.buscarConta(numeroContaFonte);
 					if (localizador == null) {
 						JOptionPane.showMessageDialog(null,
-								"Erro! não foi possivel localizar nenhuma conta com o número informado.", "Erro", 0);
+								"Erro! nï¿½o foi possivel localizar nenhuma conta com o nï¿½mero informado.", "Erro", 0);
 					}
 
 					int numeroContaDestino = Integer
-							.parseInt(JOptionPane.showInputDialog(null, "Informe o número da conta destino",
-									"Transferência em conta", JOptionPane.INFORMATION_MESSAGE));
+							.parseInt(JOptionPane.showInputDialog(null, "Informe o nï¿½mero da conta destino",
+									"Transferï¿½ncia em conta", JOptionPane.INFORMATION_MESSAGE));
 
 					localizador = operacaoContas.buscarConta(numeroContaDestino);
 					if (localizador == null) {
 						JOptionPane.showMessageDialog(null,
-								"Erro! não foi possivel localizar nenhuma conta com o número informado.", "Erro", 0);
+								"Erro! nï¿½o foi possivel localizar nenhuma conta com o nï¿½mero informado.", "Erro", 0);
 					}
 
 					double valor = Double
 							.parseDouble(JOptionPane.showInputDialog(null, "Informe um valor a ser transferido",
-									"Transferência em conta", JOptionPane.INFORMATION_MESSAGE));
+									"Transferï¿½ncia em conta", JOptionPane.INFORMATION_MESSAGE));
 
 					int resp = JOptionPane.showOptionDialog(null,
-							"Confirma a realização de depósito da conta de número " + numeroContaFonte + " para a "
+							"Confirma a realizaï¿½ï¿½o de depï¿½sito da conta de nï¿½mero " + numeroContaFonte + " para a "
 									+ numeroContaDestino + " no valor de R$ " + valor + "?",
-							"Transferência em andamento", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION, null,
+							"Transferï¿½ncia em andamento", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION, null,
 							confirmacao, 0);
 					if (resp == JOptionPane.YES_OPTION) {
 						operacaoContas.transferirValor(numeroContaFonte, numeroContaDestino, valor);
 						JOptionPane.showMessageDialog(null,
-								"Transferência realizada com sucesso!\n" + "Conta fonte:\n"
+								"Transferï¿½ncia realizada com sucesso!\n" + "Conta fonte:\n"
 										+ operacaoContas.buscarConta(numeroContaFonte) + "\n\nConta Destino:\n"
 										+ operacaoContas.buscarConta(numeroContaDestino));
 					} else {
-						JOptionPane.showMessageDialog(null, "Transferência cancelada");
+						JOptionPane.showMessageDialog(null, "Transferï¿½ncia cancelada");
 					}
 
 				}
 
 				// buscar
 				if (x.equals(operacoes[6])) {
-					String z = (String) JOptionPane.showInputDialog(null, "Selecione uma operação",
+					String z = (String) JOptionPane.showInputDialog(null, "Selecione uma operaï¿½ï¿½o",
 							"O que desejar buscar?", JOptionPane.PLAIN_MESSAGE, null, buscar, 0);
 					// buscar conta
 					if (z.equals(buscar[0])) {
 						int numeroConta = Integer.parseInt(JOptionPane.showInputDialog(null,
-								"Informe o número da conta", "Buscar conta", JOptionPane.INFORMATION_MESSAGE));
+								"Informe o nï¿½mero da conta", "Buscar conta", JOptionPane.INFORMATION_MESSAGE));
 
 						String localizador = operacaoContas.buscarConta(numeroConta);
 						if (localizador == null) {
 							JOptionPane.showMessageDialog(null,
-									"Erro! não foi possivel localizar nenhuma conta com o número informado.", "Erro",
+									"Erro! nï¿½o foi possivel localizar nenhuma conta com o nï¿½mero informado.", "Erro",
 									0);
 						} else {
 							JOptionPane.showMessageDialog(null, operacaoContas.buscarConta(numeroConta));
@@ -263,7 +262,7 @@ public class Principal {
 				}
 
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, e.getLocalizedMessage() + "\nFormato inválido!");
+				JOptionPane.showMessageDialog(null, e.getLocalizedMessage() + "\nFormato invï¿½lido!");
 
 			} catch (NullPointerException e) {
 				resposta = JOptionPane.showOptionDialog(null, "Fechar?", "Finalizar", JOptionPane.YES_OPTION,
